@@ -8,7 +8,7 @@ namespace Feagin_Asg3_Poker
 {
     public class Hand
     {
-        public List<Card> listOfCards = new List<Card>();
+        private List<Card> listOfCards = new List<Card>();
 
         public Hand()
         {
@@ -24,15 +24,19 @@ namespace Feagin_Asg3_Poker
             listOfCards.Clear();
         }
 
-        public Card getCard(int CardIndex)
+        public Card getCard(int cardIndex)
         {
-            Card card;
-            card = listOfCards[CardIndex];
+            Card card = new Card();
+
+            if (cardIndex < listOfCards.Count)
+                card = listOfCards[cardIndex];
 
             return card;
 
         }
-
-
+        public int count()
+        {
+            return listOfCards.Count();
+        }
     }
 }

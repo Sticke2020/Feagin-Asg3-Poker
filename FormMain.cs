@@ -23,11 +23,11 @@ namespace Feagin_Asg3_Poker
 
         private void showCards()
         {
-            pictureBox1.Image = imageListCards.Images[39];
-            pictureBox2.Image = imageListCards.Images[43];
-            pictureBox4.Image = imageListCards.Images[47];
-            pictureBox3.Image = imageListCards.Images[51];
-            pictureBox5.Image = imageListCards.Images[3];
+            pictureBox1.Image = imageListCards.Images[52];
+            pictureBox2.Image = imageListCards.Images[52];
+            pictureBox4.Image = imageListCards.Images[52];
+            pictureBox3.Image = imageListCards.Images[52];
+            pictureBox5.Image = imageListCards.Images[52];
         }
 
 
@@ -39,10 +39,18 @@ namespace Feagin_Asg3_Poker
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            
+            showCards();
+
+            listPictureBoxes.Clear();
+            listPictureBoxes.Add(pictureBox1);
+            listPictureBoxes.Add(pictureBox2);
+            listPictureBoxes.Add(pictureBox3);
+            listPictureBoxes.Add(pictureBox4);
+            listPictureBoxes.Add(pictureBox5);
+           
             totalCredits = 100;
             labelTotalCredits.Text = totalCredits.ToString();
-            showCards();
+            
         }
 
         private void buttonDraw_Click(object sender, EventArgs e)
@@ -73,19 +81,16 @@ namespace Feagin_Asg3_Poker
             playerHand.addCard(card4);
             playerHand.addCard(card5);
 
-            
-
             // Display the players hand
             displayHand.showHand(playerHand);
             
-
             // Disable bet button
             buttonBet.Enabled = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            pictureBox1.Enabled = false;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

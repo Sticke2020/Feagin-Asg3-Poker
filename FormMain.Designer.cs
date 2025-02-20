@@ -167,6 +167,7 @@
             this.imageListCards.Images.SetKeyName(49, "King_Diamonds.bmp");
             this.imageListCards.Images.SetKeyName(50, "King_Hearts.bmp");
             this.imageListCards.Images.SetKeyName(51, "King_Spades.bmp");
+            this.imageListCards.Images.SetKeyName(52, "Backface_Red.bmp");
             // 
             // numericUpDown
             // 

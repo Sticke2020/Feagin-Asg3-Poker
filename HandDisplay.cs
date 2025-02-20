@@ -5,25 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Feagin_Asg3_Poker
 {
-    class HandDisplay
+    public class HandDisplay
     {
-        private List<PictureBox> pictureBoxes;
+        private List<PictureBox> listPictureBoxes = new List<PictureBox>();
+        
+       // Image PictureBox.Image { get; set; }
 
         public HandDisplay(List<PictureBox> pictureBoxes)
         {
-            this.pictureBoxes = pictureBoxes;
+            this.listPictureBoxes = pictureBoxes;
+
         }   
 
         public void showHand(Hand hand)
         {
-            pictureBoxes[0].Image = hand.getCard(0).FrontImage;
-            pictureBoxes[1].Image = hand.getCard(1).FrontImage;
-            pictureBoxes[2].Image = hand.getCard(2).FrontImage;
-            pictureBoxes[3].Image = hand.getCard(3).FrontImage;
-            pictureBoxes[4].Image = hand.getCard(4).FrontImage;
+            PictureBox pictureBox = new PictureBox();
+            Card card = new Card();
+
+            for (int i = 0; i < hand.count(); i++)
+            {
+                card = hand.getCard(i);
+                listPictureBoxes[i].Image = card.FrontImage;
+            }
         }
 
     }

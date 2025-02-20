@@ -14,7 +14,6 @@ namespace Feagin_Asg3_Poker
 
         private ImageList imageList;
 
-
         public Deck(ImageList imageListOfCards)
         {
             imageList = imageListOfCards;
