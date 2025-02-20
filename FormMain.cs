@@ -14,9 +14,12 @@ namespace Feagin_Asg3_Poker
     {
         Deck deck;
         Hand playerHand = new Hand();
-
+        HandDisplay HandDisplay;
+        List<PictureBox> listPictureBoxes = new List<PictureBox>();
 
         int totalCredits = 0;
+
+        
 
         private void showCards()
         {
@@ -36,6 +39,7 @@ namespace Feagin_Asg3_Poker
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            
             totalCredits = 100;
             labelTotalCredits.Text = totalCredits.ToString();
             showCards();
@@ -52,6 +56,9 @@ namespace Feagin_Asg3_Poker
             // Create a deck using cards in (imageListCards)
             deck = new Deck(imageListCards);
 
+            // Create Display object
+            HandDisplay displayHand = new HandDisplay(listPictureBoxes);
+
             // Create Card objects and assign values from cards in deck
             Card card1 = deck.drawCard();
             Card card2 = deck.drawCard();
@@ -59,18 +66,18 @@ namespace Feagin_Asg3_Poker
             Card card4 = deck.drawCard();
             Card card5 = deck.drawCard();
 
-            pictureBox1.Image = card1.FrontImage;
-            pictureBox2.Image = card2.FrontImage;
-            pictureBox4.Image = card3.FrontImage;
-            pictureBox3.Image = card4.FrontImage;
-            pictureBox5.Image = card5.FrontImage;
-
             // Add cards to player Hand
             playerHand.addCard(card1);
             playerHand.addCard(card2);
             playerHand.addCard(card3);
             playerHand.addCard(card4);
             playerHand.addCard(card5);
+
+            
+
+            // Display the players hand
+            displayHand.showHand(playerHand);
+            
 
             // Disable bet button
             buttonBet.Enabled = false;

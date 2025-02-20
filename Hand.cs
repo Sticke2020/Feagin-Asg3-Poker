@@ -8,7 +8,7 @@ namespace Feagin_Asg3_Poker
 {
     public class Hand
     {
-        private List<Card> listOfCards = new List<Card>();
+        public List<Card> listOfCards = new List<Card>();
 
         public Hand()
         {

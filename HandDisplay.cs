@@ -10,13 +10,21 @@ namespace Feagin_Asg3_Poker
 {
     class HandDisplay
     {
-        public HandDisplay(Hand playerHand) 
+        private List<PictureBox> pictureBoxes;
+
+        public HandDisplay(List<PictureBox> pictureBoxes)
         {
-            pictureBox1.Image = playerHand.getCard(0);
-            pictureBox2.Image = playerHand.getCard(1);
-            pictureBox4.Image = playerHand.getCard(2);
-            pictureBox3.Image = playerHand.getCard(3);
-            pictureBox5.Image = playerHand.getCard(4);
+            this.pictureBoxes = pictureBoxes;
+        }   
+
+        public void showHand(Hand hand)
+        {
+            pictureBoxes[0].Image = hand.getCard(0).FrontImage;
+            pictureBoxes[1].Image = hand.getCard(1).FrontImage;
+            pictureBoxes[2].Image = hand.getCard(2).FrontImage;
+            pictureBoxes[3].Image = hand.getCard(3).FrontImage;
+            pictureBoxes[4].Image = hand.getCard(4).FrontImage;
         }
+
     }
 }
