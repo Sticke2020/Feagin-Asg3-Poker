@@ -29,7 +29,7 @@ namespace Feagin_Asg3_Poker
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            showCards();
+            faceDownCards();
             deck = new Deck(imageListCards);
             //HandDisplay displayHand = new HandDisplay(listPictureBoxes);
 
@@ -45,10 +45,17 @@ namespace Feagin_Asg3_Poker
 
             // disable draw button
             buttonDraw.Enabled = false;
+
+            // hide card held labels
+            labelHeld1.Visible = false;
+            labelHeld2.Visible = false;
+            labelHeld3.Visible = false;
+            labelHeld4.Visible = false;
+            labelHeld5.Visible = false;
             
         }
 
-        private void showCards()
+        private void faceDownCards()
         {
             pictureBox1.Image = imageListCards.Images[52];
             pictureBox2.Image = imageListCards.Images[52];
@@ -59,41 +66,40 @@ namespace Feagin_Asg3_Poker
 
         private void drawNewCards()
         {
-            if (pictureBox1.Enabled)
+            if (!labelHeld1.Visible)
             {
                 Card card1 = deck.drawCard();
                 playerHand.replaceCard(0, card1);
-
             }
-            if (pictureBox2.Enabled)
+            if (!labelHeld2.Visible)
             {
                 Card card2 = deck.drawCard();
                 playerHand.replaceCard(1, card2);
             }
-            if (pictureBox3.Enabled)
+            if (!labelHeld3.Visible)
             {
                 Card card3 = deck.drawCard();
                 playerHand.replaceCard(2, card3);
             }
-            if (pictureBox4.Enabled)
+            if (!labelHeld4.Visible)
             {
                 Card card4 = deck.drawCard();
                 playerHand.replaceCard(3, card4);
             }
-            if (pictureBox5.Enabled)
+            if (!labelHeld5.Visible)
             {
                 Card card5 = deck.drawCard();
                 playerHand.replaceCard(4, card5);
             }
         }
 
-        private void enablePictureBoxes()
+        private void hideLabels()
         {
-            pictureBox1.Enabled = true;
-            pictureBox2.Enabled = true;
-            pictureBox3.Enabled = true;
-            pictureBox4.Enabled = true;
-            pictureBox5.Enabled = true;
+            labelHeld1.Visible = false;
+            labelHeld2.Visible = false;
+            labelHeld3.Visible = false;
+            labelHeld4.Visible = false;
+            labelHeld5.Visible = false;
         }
 
         private int makeBet(int totalCredits)
@@ -105,6 +111,7 @@ namespace Feagin_Asg3_Poker
             else if (totalCredits == 0)
             {
                 MessageBox.Show("You have 0 credits!! you must start again.");
+                totalCredits = 100;
             }
 
             return totalCredits;
@@ -124,8 +131,6 @@ namespace Feagin_Asg3_Poker
 
             deck.shuffle();
 
-            enablePictureBoxes();
-
             // Disable bet button enable draw button
             buttonBet.Enabled = true;
             buttonDraw.Enabled = false;
@@ -136,6 +141,8 @@ namespace Feagin_Asg3_Poker
         {
             // Create a deck using cards in (imageListCards)
             //deck = new Deck(imageListCards);
+
+            hideLabels();
 
             // Create Display object
             HandDisplay displayHand = new HandDisplay(listPictureBoxes);
@@ -167,27 +174,62 @@ namespace Feagin_Asg3_Poker
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Enabled = false;
+            if (!labelHeld1.Visible)
+            {
+                labelHeld1.Visible = true;
+            }
+            else if (labelHeld1.Visible)
+            {
+                labelHeld1.Visible = false;
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            pictureBox2.Enabled = false;
+            if (!labelHeld2.Visible)
+            {
+                labelHeld2.Visible = true;
+            }
+            else if (labelHeld2.Visible)
+            {
+                labelHeld2.Visible = false;
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            pictureBox3.Enabled = false;
+            if (!labelHeld3.Visible)
+            {
+                labelHeld3.Visible = true;
+            }
+            else if (labelHeld3.Visible)
+            {
+                labelHeld3.Visible = false;
+            }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            pictureBox4.Enabled = false;
+            if (!labelHeld4.Visible)
+            {
+                labelHeld4.Visible = true;
+            }
+            else if (labelHeld4.Visible)
+            {
+                labelHeld4.Visible = false;
+            }
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            pictureBox5.Enabled = false;
+            if (!labelHeld5.Visible)
+            {
+                labelHeld5.Visible = true;
+            }
+            else if (labelHeld5.Visible)
+            {
+                labelHeld5.Visible = false;
+            }
         }
     }
 }

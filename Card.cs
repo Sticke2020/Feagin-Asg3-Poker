@@ -35,6 +35,18 @@ namespace Feagin_Asg3_Poker
             FrontImage = frontImage;
         }
 
+        public String getRankSuit()
+        {  
+
+            // Return a rankSuit string:   "13C"
+            String suitFirstLetter = Suit.ToString();
+            suitFirstLetter = suitFirstLetter.Substring(0, 1);
+            String rankString = "";
+            rankString = Rank.ToString();
+
+            return rankString + suitFirstLetter;
+        }
+
         public override string ToString()
         {
             String rank = "";
