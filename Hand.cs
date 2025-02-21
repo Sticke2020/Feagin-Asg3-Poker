@@ -24,6 +24,11 @@ namespace Feagin_Asg3_Poker
             listOfCards.Clear();
         }
 
+        public void replaceCard(int index, Card card)
+        {
+            listOfCards[index] = card;
+        }
+
         public Card getCard(int cardIndex)
         {
             Card card = new Card();

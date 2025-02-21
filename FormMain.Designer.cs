@@ -172,6 +172,11 @@
             // numericUpDown
             // 
             this.numericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown.Location = new System.Drawing.Point(33, 322);
             this.numericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown.Maximum = new decimal(new int[] {

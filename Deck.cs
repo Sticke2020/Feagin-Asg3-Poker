@@ -20,6 +20,11 @@ namespace Feagin_Asg3_Poker
             loadDeck();
         }
 
+        public void shuffle()
+        {
+            loadDeck();
+        }
+
         private void loadDeck()
         {
             // Clear the list
