@@ -47,6 +47,11 @@
             this.labelHeld3 = new System.Windows.Forms.Label();
             this.labelHeld4 = new System.Windows.Forms.Label();
             this.labelHeld5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelAmountWon = new System.Windows.Forms.Label();
+            this.labelPayOffRatio = new System.Windows.Forms.Label();
+            this.labelHandResult = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -177,21 +182,31 @@
             0,
             0,
             0});
-            this.numericUpDown.Location = new System.Drawing.Point(33, 322);
+            this.numericUpDown.Location = new System.Drawing.Point(30, 291);
             this.numericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
+            this.numericUpDown.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown.Name = "numericUpDown";
             this.numericUpDown.Size = new System.Drawing.Size(118, 26);
             this.numericUpDown.TabIndex = 5;
+            this.numericUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // buttonBet
             // 
             this.buttonBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBet.Location = new System.Drawing.Point(178, 317);
+            this.buttonBet.Location = new System.Drawing.Point(175, 286);
             this.buttonBet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBet.Name = "buttonBet";
             this.buttonBet.Size = new System.Drawing.Size(114, 35);
@@ -203,7 +218,7 @@
             // buttonDraw
             // 
             this.buttonDraw.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDraw.Location = new System.Drawing.Point(323, 317);
+            this.buttonDraw.Location = new System.Drawing.Point(320, 286);
             this.buttonDraw.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonDraw.Name = "buttonDraw";
             this.buttonDraw.Size = new System.Drawing.Size(114, 35);
@@ -290,11 +305,69 @@
             this.labelHeld5.TabIndex = 13;
             this.labelHeld5.Text = "**Held**";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(40, 442);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Amount Won:";
+            // 
+            // labelAmountWon
+            // 
+            this.labelAmountWon.AutoSize = true;
+            this.labelAmountWon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAmountWon.Location = new System.Drawing.Point(150, 442);
+            this.labelAmountWon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAmountWon.Name = "labelAmountWon";
+            this.labelAmountWon.Size = new System.Drawing.Size(0, 20);
+            this.labelAmountWon.TabIndex = 15;
+            // 
+            // labelPayOffRatio
+            // 
+            this.labelPayOffRatio.AutoSize = true;
+            this.labelPayOffRatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPayOffRatio.Location = new System.Drawing.Point(147, 394);
+            this.labelPayOffRatio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPayOffRatio.Name = "labelPayOffRatio";
+            this.labelPayOffRatio.Size = new System.Drawing.Size(0, 20);
+            this.labelPayOffRatio.TabIndex = 17;
+            // 
+            // labelHandResult
+            // 
+            this.labelHandResult.AutoSize = true;
+            this.labelHandResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHandResult.Location = new System.Drawing.Point(40, 345);
+            this.labelHandResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelHandResult.Name = "labelHandResult";
+            this.labelHandResult.Size = new System.Drawing.Size(98, 20);
+            this.labelHandResult.TabIndex = 16;
+            this.labelHandResult.Text = "Hand Result";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(40, 394);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 20);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "PayOffRatio";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 585);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelPayOffRatio);
+            this.Controls.Add(this.labelHandResult);
+            this.Controls.Add(this.labelAmountWon);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.labelHeld5);
             this.Controls.Add(this.labelHeld4);
             this.Controls.Add(this.labelHeld3);
@@ -346,6 +419,11 @@
         private System.Windows.Forms.Label labelHeld3;
         private System.Windows.Forms.Label labelHeld4;
         private System.Windows.Forms.Label labelHeld5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelAmountWon;
+        private System.Windows.Forms.Label labelPayOffRatio;
+        private System.Windows.Forms.Label labelHandResult;
+        private System.Windows.Forms.Label label3;
     }
 }
 

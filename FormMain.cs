@@ -20,7 +20,7 @@ namespace Feagin_Asg3_Poker
         
 
         int totalCredits = 0;
-
+        int betMade = 0;
 
         public FormMain()
         {
@@ -102,11 +102,36 @@ namespace Feagin_Asg3_Poker
             labelHeld5.Visible = false;
         }
 
+        private void labelToggleHeld(Label label)
+        {
+            if (!label.Visible)
+            {
+                label.Visible = true;
+            }
+            else if (label.Visible)
+            {
+                label.Visible = false;
+            }
+        }
+
         private int makeBet(int totalCredits)
         {
             if (totalCredits > 0)
             {
-                totalCredits -= (int)numericUpDown.Value;
+                if ((int)numericUpDown.Value > totalCredits)
+                {
+                    MessageBox.Show("You do not have enough credits. " + totalCredits.ToString() + " Credits will be bet");
+
+                    numericUpDown.Value = totalCredits;
+                    totalCredits -= totalCredits;
+                    betMade = totalCredits;
+                }
+                else
+                {
+                    totalCredits -= (int)numericUpDown.Value;
+                    betMade = (int)numericUpDown.Value;
+                }
+
             }
             else if (totalCredits == 0)
             {
@@ -119,12 +144,33 @@ namespace Feagin_Asg3_Poker
 
         private void buttonDraw_Click(object sender, EventArgs e)
         {
+            Card card = new Card();
             HandDisplay displayHand = new HandDisplay(listPictureBoxes);
 
             drawNewCards();
 
             //Show the players hand
             displayHand.showHand(playerHand);
+
+            card = playerHand.getCard(0);
+            String rS1 = card.getRankSuit();
+            card = playerHand.getCard(1);
+            String rS2 = card.getRankSuit();
+            card = playerHand.getCard(2);
+            String rS3 = card.getRankSuit();
+            card = playerHand.getCard(3);
+            String rS4 = card.getRankSuit();
+            card = playerHand.getCard(4);
+            String rS5 = card.getRankSuit();
+
+            PokerScore pokerScore = new PokerScore(rS1, rS2, rS3, rS4, rS5);
+            labelHandResult.Text = pokerScore.scoreHand();
+            int payOffRatio = pokerScore.getPayoffRatio();
+            labelPayOffRatio.Text = payOffRatio.ToString();
+
+            labelAmountWon.Text = (betMade *  payOffRatio).ToString();
+            totalCredits = (betMade * payOffRatio) + totalCredits;
+            labelTotalCredits.Text = totalCredits.ToString();
 
             //clear the players hand
             playerHand.clearHand();
@@ -174,62 +220,27 @@ namespace Feagin_Asg3_Poker
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (!labelHeld1.Visible)
-            {
-                labelHeld1.Visible = true;
-            }
-            else if (labelHeld1.Visible)
-            {
-                labelHeld1.Visible = false;
-            }
+            labelToggleHeld(labelHeld1);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (!labelHeld2.Visible)
-            {
-                labelHeld2.Visible = true;
-            }
-            else if (labelHeld2.Visible)
-            {
-                labelHeld2.Visible = false;
-            }
+            labelToggleHeld(labelHeld2);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            if (!labelHeld3.Visible)
-            {
-                labelHeld3.Visible = true;
-            }
-            else if (labelHeld3.Visible)
-            {
-                labelHeld3.Visible = false;
-            }
+            labelToggleHeld(labelHeld3);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            if (!labelHeld4.Visible)
-            {
-                labelHeld4.Visible = true;
-            }
-            else if (labelHeld4.Visible)
-            {
-                labelHeld4.Visible = false;
-            }
+            labelToggleHeld(labelHeld4);
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            if (!labelHeld5.Visible)
-            {
-                labelHeld5.Visible = true;
-            }
-            else if (labelHeld5.Visible)
-            {
-                labelHeld5.Visible = false;
-            }
+            labelToggleHeld(labelHeld5);
         }
     }
 }
