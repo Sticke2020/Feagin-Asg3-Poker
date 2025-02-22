@@ -131,7 +131,6 @@ namespace Feagin_Asg3_Poker
                     totalCredits -= (int)numericUpDown.Value;
                     betMade = (int)numericUpDown.Value;
                 }
-
             }
             else if (totalCredits == 0)
             {
@@ -152,6 +151,7 @@ namespace Feagin_Asg3_Poker
             //Show the players hand
             displayHand.showHand(playerHand);
 
+            // get rank suit of players hand
             card = playerHand.getCard(0);
             String rS1 = card.getRankSuit();
             card = playerHand.getCard(1);
@@ -163,6 +163,7 @@ namespace Feagin_Asg3_Poker
             card = playerHand.getCard(4);
             String rS5 = card.getRankSuit();
 
+            // score the players hand
             PokerScore pokerScore = new PokerScore(rS1, rS2, rS3, rS4, rS5);
             labelHandResult.Text = pokerScore.scoreHand();
             int payOffRatio = pokerScore.getPayoffRatio();
@@ -180,19 +181,16 @@ namespace Feagin_Asg3_Poker
             // Disable bet button enable draw button
             buttonBet.Enabled = true;
             buttonDraw.Enabled = false;
-
         }
 
         private void buttonBet_Click(object sender, EventArgs e)
         {
-            // Create a deck using cards in (imageListCards)
-            //deck = new Deck(imageListCards);
-
             hideLabels();
 
             // Create Display object
             HandDisplay displayHand = new HandDisplay(listPictureBoxes);
 
+            // update credits - bet amount
             totalCredits = makeBet(totalCredits);
             labelTotalCredits.Text = totalCredits.ToString();
 
